@@ -1,3 +1,4 @@
 node_modules/
 .env
+setup
 src/config/config.json
