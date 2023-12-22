@@ -1,9 +1,9 @@
 // const city = require('../models/city')
 // repository layer work is going to be interact with models and the database;
-const {City} = require('../models/index')
+const {City} = require('../models/index')//returns all corresponding model
 
 class cityRepository {
-    async createCity({ name }) {
+    async createCity({name}) {
         try{
             const city = await City.create({name});
             return city;
@@ -26,9 +26,9 @@ class cityRepository {
         }
     }
 
-    async updateCity({name}){
+    async updateCity({newname}){
         try{
-            const newcity=await City.update({name});
+            const newcity=await City.update({newname});
             return newcity;
         }
         catch(error){
