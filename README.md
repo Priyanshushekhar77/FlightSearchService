@@ -44,3 +44,4 @@ npx sequelize model:generate --name Airport --attributes name:String,address:Str
 
 //migrations helps in incremental changes(create,update,delete) in your table and keep logs of changes,it apply all the changes of db in ur database;
 //seeder is initial sets of datas;
+//association sequelize cli
