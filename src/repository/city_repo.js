@@ -1,6 +1,8 @@
 // const city = require('../models/city')
 // repository layer work is going to be interact with models and the database;
 const { City } = require('../models/index');
+//for filter name operator is use in sequelize
+const {Op} = require("sequelize")
 
 class CityRepository {
 
@@ -30,16 +32,8 @@ class CityRepository {
         }
     }
 
-    async updateCity(cityId, data) { // {name: "Prayagraj"}
+    async updateCity(cityId, data) { // {name: "Patna"}
         try {
-               // The below approach also works but will not return updated object
-            // const city = await City.update(data, {
-            //     where: {
-            //         id: cityId
-            //     },
-            //      
-            // });
-            // for getting updated data in mysql we use the below approach
             const city = await City.findByPk(cityId);
             city.name = data.name;
             await city.save();
@@ -61,7 +55,8 @@ class CityRepository {
         }
     }
 
-    async getAllCity(filter) { // filter can be empty also
+    async getAllCity(filter) { 
+        // filter can be empty also
         try {
             if(filter.name) {
                 const cities = await City.findAll({
@@ -73,8 +68,10 @@ class CityRepository {
                 });
                 return cities;
             }
-            const cities = await City.findAll();
-            return cities;
+            else{
+                const cities = await City.findAll();
+                return cities;
+            }
         } catch (error) {
             console.log("Something went wrong in the repository layer");
             throw {error};

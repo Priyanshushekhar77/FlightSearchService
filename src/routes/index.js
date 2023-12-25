@@ -5,7 +5,7 @@
 //  const v1ApiRoutes = require('./v2/index')//mapping
 
  router.use('/v1',v1ApiRoutes);
-//  router.use('./v1',v1ApiRoutes);
+//  router.use('./v2',v1ApiRoutes);
 
  module.exports = router;
 
