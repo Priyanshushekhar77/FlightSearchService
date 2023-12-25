@@ -1,4 +1,4 @@
 node_modules/
 .env
-setup
+qns.js
 src/config/config.json

@@ -2,12 +2,15 @@
 ## src folder contains/
    -  index.js //for servers
    -  models/
-   -  controllers/
+   -  controllers/ - -> taking req ,sending res returns to route
    -   middlewares/
-   -  services/
+   -  services/  -> all business logic returns to controller
    -  utills//for extra stuffs
    -  config/
-   -  respository/
+   -  respository/ -> communicates with db returns to service
+   - seeders /-> used for generating datas
+             npx sequelize db:seed:all;
+   - RELATION -- index -> route -> controller -> service -> repository -> models and migrations
 
 
 <!--  -->
@@ -34,7 +37,9 @@
 ## Airplane table -> id, model no, capacity, created at, updated at;
 ## Flights -> id,airplane id(ref), src_airport_id(ref),dest_airport_id(ref), departure_date,arrival_date,departure_time,arrival_time, flight number;
 
-npx sequelize model:generate --name Airport --attributes name:String,address:String,cityId:integer
+code -> npx sequelize model:generate --name Airport --attributes name:String,address:String,cityId:integer
+npx sequelize db:migrate
+npx sequelize seed:generate --name add-airports
 ```
 
 ### Dependices:
