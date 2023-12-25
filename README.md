@@ -31,7 +31,7 @@
 ## Tables
 
 ##  City -> id, name, created_at, updated_at
-### Airport -> id, name, address, city_id(ref), created_at, updated_at
+### Airport -> id, name, address, city_id(ref-associated with city), created_at, updated_at
 (Relationship -> City has many airports and Airport belongs to a city (association -> one to many))
 
 ## Airplane table -> id, model no, capacity, created at, updated at;
@@ -40,6 +40,9 @@
 code -> npx sequelize model:generate --name Airport --attributes name:String,address:String,cityId:integer
 npx sequelize db:migrate
 npx sequelize seed:generate --name add-airports
+
+npx sequelize seed:generate --name add-airport
+npx sequelize db:seed:all;
 ```
 
 ### Dependices:

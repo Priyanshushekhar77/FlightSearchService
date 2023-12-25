@@ -5,7 +5,8 @@ const express = require("express");
 const bodyParser = require("body-parser");
 
 
-//   const {Airport,City}=require('./models/index');
+const {Airplane}=require('./models/index');
+
 const {db}=require('./models/index');//for syncing
 
 const ApiRoutes = require('./routes/index');
@@ -22,11 +23,11 @@ const setupAndStartServer = async () => {
 
     app.listen(process.env.PORT, async() => {
         console.log(`Server started at ${process.env.PORT}`);
-    //  1. query -> to get details of airports including city
-    // 2.query -> to get details of all the airports from the cityid is known
-    // if(process.env.SYNC_DB){
-    //     db.sequelize.sync({alter:true});
-    // }
+       //direct insertion
+        await Airplane.create({
+            modelNumber:'Apnaplane',
+            capacity:7
+        })
      });
 }
 setupAndStartServer();
