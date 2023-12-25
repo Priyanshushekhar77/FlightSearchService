@@ -35,11 +35,11 @@
 (Relationship -> City has many airports and Airport belongs to a city (association -> one to many))
 
 ## Airplane table -> id, model no, capacity, created at, updated at;
-## Flights -> id,airplane id(ref), src_airport_id(ref),dest_airport_id(ref), departure_date,arrival_date,departure_time,arrival_time, flight number;
+## Flights -> id,airplane id(ref), src_airport_id(ref),dest_airport_id(ref), departure_date,arrival_date,departure_time,arrival_time, flight Number,Price,boardingGate,totalSeats;
 
 code -> npx sequelize model:generate --name Airport --attributes name:String,address:String,cityId:integer
 npx sequelize db:migrate
-npx sequelize seed:generate --name add-airports
+npx sequelize seed:generate --name add-airports//refer doc
 
 npx sequelize seed:generate --name add-airport
 npx sequelize db:seed:all;
