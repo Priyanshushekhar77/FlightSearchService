@@ -24,10 +24,10 @@ const setupAndStartServer = async () => {
     app.listen(process.env.PORT, async() => {
         console.log(`Server started at ${process.env.PORT}`);
        //direct insertion
-        await Airplane.create({
-            modelNumber:'Apnaplane',
-            capacity:7
-        })
+        // await Airplane.create({
+        //     modelNumber:'Apnaplane',
+        //     capacity:7
+        // })
      });
 }
 setupAndStartServer();
